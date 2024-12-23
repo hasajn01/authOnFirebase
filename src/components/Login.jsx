@@ -58,6 +58,10 @@ const Login = () => {
                     <Button variant="primary" type="submit" className="login-button">
                         Login
                     </Button>
+                    <h5 onClick={(e) => {
+                        e.preventDefault()
+                        navigate('/register')
+                    }}>Not have account?</h5>
                 </Form>
             </Card.Body>
         </Card>

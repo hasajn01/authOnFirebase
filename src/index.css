@@ -28,6 +28,14 @@
     text-align: center; /* Выравнивание надписи по центру */
 }
 
+.login-card-body h5 {
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #007bff;
+    letter-spacing: 2px;
+    text-align: center; /* Выравнивание надписи по центру */
+    cursor: pointer;
+}
 
 .login-button {
     margin-top: 20px;

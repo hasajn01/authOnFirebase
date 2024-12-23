@@ -67,6 +67,11 @@ const Register = () => {
                     <Button variant="primary" type="submit" className="login-button">
                         Login
                     </Button>
+
+                    <h5 onClick={(e) => {
+                        e.preventDefault()
+                        navigate('/login')
+                    }}>Have account?</h5>
                 </Form>
             </Card.Body>
         </Card>
