@@ -8,6 +8,7 @@ const Login = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const navigate = useNavigate()
+    const [errorOpen, setErrorOpen] = useState(false)
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -26,9 +27,15 @@ const Login = () => {
             await signInWithEmailAndPassword(auth, email, password)
             navigate('/')
         } catch (error) {
-            console.error('Error signing in: ', error)
+            if (error) {
+                setErrorOpen(true)
+                console.error('Error signing in: ', error)
+            } else {
+                setErrorOpen(false)
+            }
         }
     }
+
     return (
         <div className="login-container">
         <Card className="login-card">
@@ -58,6 +65,8 @@ const Login = () => {
                     <Button variant="primary" type="submit" className="login-button">
                         Login
                     </Button>
+
+                    {errorOpen ? <h6 style={{display:'flex',color:'red', justifyContent:'center'}}>This account not exists</h6> : ''}
                     <h5 onClick={(e) => {
                         e.preventDefault()
                         navigate('/register')
